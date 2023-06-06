@@ -103,6 +103,10 @@ video {
     text-align: justify;
 }
 
+.blue-icon::before {
+    color: rgb(17, 173, 225);
+}
+
 article,
 aside,
 details,
