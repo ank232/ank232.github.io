@@ -107,6 +107,16 @@ video {
     color: rgb(17, 173, 225);
 }
 
+.trailhead_button,
+.resume_button {
+    display: flex;
+}
+
+.important_links>* {
+    flex: 1;
+    margin-top: 1rem;
+}
+
 article,
 aside,
 details,
