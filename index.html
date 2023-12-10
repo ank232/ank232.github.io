@@ -54,7 +54,8 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#work">Work</a></li>
-                    <li><a href="https://topmate.io/ankur_trivedi/345846/pay" target="_blank">Contact</a></li>
+                    <!-- <li><a href="#contact ">Contact</a></li> -->
+                    <!-- <li><a href="https://topmate.io/ankur_trivedi/345846/pay" target="_blank">Contact</a></li> -->
 
                 </ul>
             </nav>
@@ -70,9 +71,31 @@
                     I'm a passionate Salesforce developer. I possess strong understanding of Object Oriented Programming
                     Concepts, Apex, SOQL, SOSL, governer limits along with Lightning Web Components. I also have
                     knowledge in REST APIs and connecting external systems to
-                    salesforce. You can also checkout my profile on Trailhead from the below button 👇
+                    salesforce. You can also checkout my profile on Trailhead. My contact details are:
                 </p>
+                <ul class="icons">
+                    <li>
+                        <a href="tel: +91-6395518961" target="_blank " class="fas fa-phone"><span class="label"></span></a>
+                    </li>
+                    <li>
+                        <a href="mailto: anktridev@gmail.com" target="_blank " class="fas fa-envelope">
+                            <span class="label"></span></a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/ankur-trivedi-a32748186/ " target="_blank "
+                            class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a>
+                    </li>
+                    <li>
+                        <a href="https://trailblazer.me/id/ank232 " target="_blank " class="icon brands fa-salesforce"><span
+                                class="label">TrailHead</span></a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/ank232 " target="_blank " class="icon brands fa-github"><span
+                                class="label">GitHub</span></a>
+                    </li>
+                </ul>
                 <a href="https://trailblazer.me/id/ank232" target="_blank" class="button"> My Traihead </a>
+                <a href="https://flowcv.com/resume/6ro6vrgt06" target="_blank" class="button">Get Ankur's Resume</a>
             </article>
 
             <!-- Work -->
@@ -139,7 +162,7 @@
                 <p class="short-content">
                     👋! My Name is Ankur Trivedi. I am a salesforce developer. I have worked in analytics and backend
                     development. I bring knowledge of <b>Apex</b>,
-                    <b>Apex Triggers</b>, <b>Flows</b> and
+                    <b>Apex Triggers</b>, <b>Flows</b>,<b>data modelling</b> and
                     <b>Lightning Web Components</b>.
                 </p>
                 <div class="achievement">
@@ -183,38 +206,38 @@
                         <a href="https://trailblazer.me/id/ank232" target="_blank" class="button"> My Traihead </a>
                     </div>
                     <div class="resume_button">
-                        <a class="button"
-                            href="https://drive.google.com/file/d/1TNscrqf0PFwEv6Fz2mEq-P4Lj5n-wEmt/view?usp=sharing"
-                            target="_blank"><i class="fas fa-cloud">...</i>Download My Resume
+                        <a class="button" href="https://flowcv.com/resume/6ro6vrgt06" target="_blank"><i
+                                class="fas fa-cloud">...</i>Download My Resume
                         </a>
                     </div>
                 </div>
             </article>
 
             <!-- Contact -->
-            <article id="contact ">
+            <article id="contact">
                 <h2 class="major ">Contact</h2>
-                <form method="post " action="# ">
+                <form method="post " action="# ">                                         
                     <div class="fields ">
                         <div class="field half ">
                             <label for="name ">Name</label>
-                            <input type="text " name="name " id="name " />
+                            <input class="input_field" type="text " name="name " id="name " />
                         </div>
                         <div class="field half ">
                             <label for="email ">Email</label>
-                            <input type="text " name="email " id="email " />
+                            <h3>anktridev@gmail.com</h3>
+                            <!-- <input class="input_field" type="text " name="email " id="email " /> -->
                         </div>
                         <div class="field ">
                             <label for="message ">Message</label>
                             <textarea name="message " id="message " rows="4 "></textarea>
                         </div>
                     </div>
-                    <ul class="actions ">
+                    <!-- <ul class="actions ">
                         <li>
                             <input type="submit " value="Send Message " class="primary " />
                         </li>
                         <li><input type="reset " value="Reset " /></li>
-                    </ul>
+                    </ul> -->
                 </form>
             </article>
 
@@ -227,31 +250,41 @@
                 </p>
                 <h2 class="major ">Projects</h2>
                 <div class="project">
-                    <h3>BillZen (Ongoing)</h3>
+                    <h3><i>Bill Zen</i> an Invoice management application</h3>
                     <ul>
-                        <li>Implementing a user-friendly interface with custom <b>LWC</b> components that streamline the
-                            creation, tracking, and management of invoices using Salesforce platform.</li>
+                        <li>Bill Zen is an application that can manage invoice generation required in a sales process,
+                            centralizes the management of
+                            invoices at one place.</li>
                         <li>
-                            This application also supports mult-currency.
+                            <b>
+                                Integrated
+                            </b> with the <b>Stripe payment</b> gateway, leveraging secure webhooks for real-time
+                            updates.
                         </li>
-                        <li>
-                            Designed re-usable components to tailor user needs.
+                        <li> <b>Incorporated</b> CI workflow for <b>deployment</b> of apex code with GitHub Actions.
                         </li>
-                        <li>
-                            Created <b>Apex triggers</b> to automate business logic using a trigger framework and
-                            automated the
-                            whole test execution using <b>Continuous Integration (CI) </b>pipeline using GitHub actions
+                        <li>Developed and tested Apex triggers to automate business logic using a trigger framework.
                         </li>
-                        <li>Implemented Apex triggers to ensure data integrity and maintain system consistency, ensuring
-                            accurate and reliable invoice data.</li>
                         </li>
-                        <li>Designed various components such as Invoice and Line-Item, refund and payment record
-                            creation.
+                        <li>Designed Custom UI with LWC to facilitate user needs like to make payment using stripe,
+                            invoice related lists, adding/removing line-items for an invoice.
                         </li>
                         <li> Developed <b>Lightning flows</b> to send email for invoice reminder to customers.</li>
-                        <a href="https://github.com/ank232/DevelopmentOrg" target="_blank" class="button"><i
-                                class="icon brands fa-github"></i>Code Repository </a>
+                        <li>
+                            <span>To review my code </span>                                                
+                            <a href="https://github.com/ank232/DevelopmentOrg"
+                                target="_blank" class="button"><i class="icon brands fa-github"></i>Code Repository </a>
+                        </li>
                     </ul>
+                    <div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%;
+                     padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+                     border-radius: 8px; will-change: transform;">
+                        <iframe loading="lazy"
+                            style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+                            src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFwGPMAUik&#x2F;watch?embed"
+                            allowfullscreen="allowfullscreen" allow="fullscreen">
+                        </iframe>
+                    </div>
                 </div>
                 <div class="project">
                     <h3>Kraya E-commerce</h3>
@@ -271,7 +304,7 @@
                         </li>
                         <li> Visualized the data with appropriate graphs, and correlation matrix. .</li>
                         <a href='https://github.com/ank232/Student-Alcohol-Consumption-' target="_blank "
-                            class="button "><i class="icon brands fa-github "></i> My Project Repo</a>
+                            class="button "><i class="icon brands fa-github "></i>Project Repo</a>
                     </ul>
                 </div>
             </article>
