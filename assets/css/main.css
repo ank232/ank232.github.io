@@ -1838,12 +1838,11 @@ body.is-preload #footer {
 .work-location{
     justify-content:center;
 }
-@media(max-width:768px){
-
+@media screen and (max-width:736px){
 .services-grid{
     grid-template-columns:1fr !important;
     gap:1rem;
-    background:blue;
+    background:red;
 }
 .service-card{
     padding:1.4rem;
