@@ -1841,7 +1841,7 @@ body.is-preload #footer {
 @media(max-width:768px){
 
 .services-grid{
-    grid-template-columns:1fr;
+    grid-template-columns:1fr !important;
     gap:1rem;
 }
 .service-card{
