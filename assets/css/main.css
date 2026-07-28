@@ -1843,6 +1843,7 @@ body.is-preload #footer {
 .services-grid{
     grid-template-columns:1fr !important;
     gap:1rem;
+    background:blue;
 }
 .service-card{
     padding:1.4rem;
