@@ -1841,7 +1841,9 @@ body.is-preload #footer {
     border-radius: 999px;
     letter-spacing: .03rem;
 }
-
+.work-location{
+    justify-content:center;`
+}
 @media(max-width:768px) {
 
     .services-grid {
