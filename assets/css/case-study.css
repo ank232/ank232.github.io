@@ -1,0 +1,171 @@
+/* ==========================
+   Case Study Layout
+========================== */
+/* body {
+    background-image: url("../../images/bg2.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+} */
+.case-study-body #bg:after{
+    transform: scale(1.15);
+    filter: blur(.1rem) brightness(.75);
+}
+.case-study-page {
+    width: min(1100px, calc(100% - 4rem));
+    margin: 0 auto;
+    padding: 4rem 0 6rem;
+}
+
+.case-study {
+    width: 100%;
+}
+
+/* ==========================
+   Hero
+========================== */
+
+.case-hero {
+    margin-bottom: 4rem;
+}
+
+.hero-image {
+    margin: 0 0 2rem;
+}
+
+.hero-image img {
+    width: 100%;
+    border-radius: 0.25rem;
+    display: block;
+}
+
+.case-hero h1 {
+    margin-bottom: 1rem;
+}
+
+.case-hero p {
+    margin-bottom: 1.5rem;
+}
+
+/* ==========================
+   Sections
+========================== */
+
+.case-study section,
+.case-study aside {
+    margin-bottom: 4rem;
+}
+
+.case-study h2 {
+    margin-bottom: 1.5rem;
+}
+
+.case-study h3 {
+    margin-bottom: 0.75rem;
+}
+
+.case-study p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+}
+
+.case-study figure {
+    margin: 2rem 0;
+}
+
+.case-study figcaption {
+    text-align: center;
+    margin-top: 0.75rem;
+    opacity: 0.75;
+    font-size: 0.9rem;
+}
+
+/* ==========================
+   Lists
+========================== */
+
+.tech-stack,
+.outcomes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+    padding: 0;
+    margin: 1.5rem 0;
+    list-style: none;
+}
+
+.tech-stack li,
+.outcomes li {
+    border: solid 1px rgba(255, 255, 255, .2);
+    padding: .55rem 1rem;
+    border-radius: 4px;
+    font-size: .85rem;
+    letter-spacing: .12rem;
+    text-transform: uppercase;
+}
+
+/* ==========================
+   Engineering Decisions
+========================== */
+
+.decision-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.decision-card {
+    border: solid 1px rgba(255, 255, 255, .18);
+    padding: 1.5rem;
+    border-radius: 4px;
+}
+
+.decision-card h3 {
+    margin-bottom: .75rem;
+}
+
+/* ==========================
+   My Role
+========================== */
+
+.my-role {
+    border-top: solid 1px rgba(255, 255, 255, .12);
+    padding-top: 3rem;
+}
+
+.my-role ul {
+    margin-top: 1.5rem;
+}
+
+/* ==========================
+   Images
+========================== */
+
+.case-study img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ==========================
+   Mobile
+========================== */
+
+@media screen and (max-width: 736px) {
+
+    .case-study-page {
+        width: calc(100% - 2rem);
+        padding: 2rem 0 4rem;
+    }
+
+    .case-study section,
+    .case-study aside {
+        margin-bottom: 3rem;
+    }
+
+    .decision-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
