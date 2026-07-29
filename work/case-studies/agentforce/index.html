@@ -29,85 +29,245 @@
                     </ul>
                 </header>
                 <section>
-                    <h2>Executive Summary</h2>
-                    <p></p>
+                    <h2 class="major">Executive Summary</h2>
+                    <p class="short-content">Yotrio US receives a large volume of warranty and product support requests
+                        through Email-to-Case
+                        from retail partners and customers. Processing these requests traditionally required support
+                        agents to manually analyse emails, identify the requester, collect missing information, validate
+                        warranty eligibility and perform the required business actions before responding.
+
+                        To modernise this workflow, I designed and implemented a production-ready multi-agent AI
+                        platform using Salesforce Agentforce.
+
+                        The solution automatically analyses incoming emails, classifies the sender, orchestrates
+                        specialised AI agents, gathers missing information through conversational interactions,
+                        validates warranty eligibility using enterprise knowledge, performs business operations and
+                        prepares contextual responses for support teams.
+
+                        Rather than replacing customer service representatives, the platform reduces repetitive
+                        operational work while ensuring every business decision remains grounded in company policies and
+                        trusted enterprise data.
+
+                        As the sole engineer on the project, I was responsible for the complete architecture,
+                        implementation, testing and deployment of the solution.</p>
                 </section>
                 <section>
-                    <h2>The Challenge</h2>
+                    <h2 class="major">The Challenge</h2>
                     <figure>
                         <!-- Before Workflow -->
                     </figure>
-                    <p></p>
+                    <p class="short-content">
+                        Yotrio's customer support organisation handles warranty requests from multiple retail vendors,
+                        distributors and end customers. Although every request arrived through Email-to-Case, processing
+                        each case required significant manual effort before an agent could even begin resolving the
+                        issue.
+
+                        Support representatives needed to determine who had sent the email, understand the customer's
+                        intent, identify the affected product, verify warranty eligibility, collect any missing
+                        information and finally perform the required business operation such as initiating a replacement
+                        order or escalating the request.
+
+                        The process relied heavily on human interpretation, resulting in repetitive work, inconsistent
+                        information gathering and longer response cycles whenever essential details were missing.
+
+                        The challenge was not simply answering customer questions using AI. The solution needed to
+                        understand business context, follow warranty policies, interact naturally with customers,
+                        execute Salesforce business processes and maintain enterprise-grade governance throughout every
+                        interaction.
+                    </p>
                 </section>
                 <section>
-                    <h2>The Solution</h2>
+                    <h2 class="major">The Solution</h2>
                     <figure>
                         <!-- High Level Solution -->
                     </figure>
-                    <p></p>
+                    <p class="short-content">Instead of implementing a single conversational AI assistant, I designed a
+                        multi-agent
+                        architecture where specialised AI agents collaborate under a central orchestration layer.
+
+                        Every incoming email enters Salesforce through Email-to-Case before being analysed by an
+                        orchestration agent responsible for understanding the conversation, identifying the requester
+                        and selecting the appropriate specialist agent.
+
+                        Vendor enquiries and customer warranty requests follow different business paths. Dedicated AI
+                        agents handle these independently while sharing enterprise knowledge through Data Cloud grounded
+                        retrieval.
+
+                        When sufficient information is unavailable, the platform conducts structured conversations with
+                        the customer to collect only the required details before continuing the workflow.
+
+                        Once all mandatory information has been collected, the platform validates warranty rules,
+                        executes the appropriate Salesforce business operations and prepares an accurate draft response
+                        for the support team.
+
+                        This architecture separates business reasoning from business execution, making the platform
+                        easier to extend as additional support scenarios are introduced.</p>
                 </section>
                 <section>
-                    <h2>Architecture Overview</h2>
+                    <h2 class="major">Architecture Overview</h2>
                     <figure>
                         <img src="../images/agentforce-architecture.png" alt="Architecture Diagram">
                         <figcaption>High-level orchestration of the multi-agent Agentforce platform.</figcaption>
                     </figure>
+                    <p class="short-content">The architecture follows a layered orchestration model where each component
+                        performs a clearly defined responsibility.
+
+                        Incoming emails are received through Salesforce Email-to-Case and passed into the Agentforce
+                        orchestration layer.
+
+                        The Orchestrator Agent performs initial reasoning by analysing the conversation, identifying the
+                        sender and determining whether the request should be handled by the Vendor Agent or Customer
+                        Agent.
+
+                        Each specialist agent is responsible only for its business domain. Prompt Templates guide
+                        reasoning while Agentforce maintains conversational context across multiple email exchanges.
+
+                        Whenever product information, warranty policies or documentation is required, the agents
+                        retrieve grounded knowledge from Data Cloud instead of relying solely on language model
+                        reasoning.
+
+                        Business operations such as warranty validation, replacement order creation, case updates and
+                        draft email generation are executed using deterministic Salesforce automation implemented
+                        through Apex, Flows and ConnectApi integrations.
+
+                        This separation ensures AI performs reasoning while Salesforce remains responsible for
+                        authoritative business execution.</p>
                 </section>
                 <section>
-                    <h2>Technical Implementation</h2>
+                    <h2 class="major">Technical Implementation</h2>
                     <section>
                         <h3>Phase 1 · Ingestion & Classification</h3>
-                        <p></p>
+                        <p>Every support request begins with Salesforce Email-to-Case.
+
+                            An orchestration layer analyses the incoming conversation, extracts contextual information
+                            and determines whether the request originated from a retail vendor or an end customer.
+
+                            This initial classification establishes the execution path for the remainder of the workflow
+                            while preserving conversation history for future reasoning.</p>
                     </section>
                     <section>
                         <h3>Phase 2 · Multi-Agent Delegation</h3>
-                        <p></p>
+                        <p class="short-content">
+                            Rather than embedding every business rule inside one large prompt, the solution delegates
+                            responsibility to specialised AI agents.
+
+                            The Orchestrator Agent invokes the appropriate specialist through Apex using ConnectApi,
+                            allowing each agent to focus exclusively on its own business domain.
+
+                            This architecture significantly improves maintainability by isolating business
+                            responsibilities while allowing additional agents to be introduced without redesigning the
+                            entire system.
+                        </p>
                     </section>
                     <section>
                         <h3>Phase 3 · Conversational Slot-Filling</h3>
-                        <p></p>
+                        <p class="short-content">
+                            Warranty requests rarely arrive with complete information.
+
+                            Instead of rejecting incomplete requests, the agents identify missing business attributes
+                            and conduct natural conversations with customers to collect only the required information.
+
+                            Agentforce conversation memory enables the platform to continue gathering information across
+                            multiple email exchanges without repeatedly requesting previously supplied details.
+                        </p>
                     </section>
                     <section>
                         <h3>Phase 4 · Warranty Validation & RAG</h3>
-                        <p></p>
+                        <p class="short-content">
+                            Business decisions are grounded using enterprise knowledge rather than relying exclusively
+                            on large language model reasoning.
+
+                            Prompt Templates retrieve relevant warranty policies, product documentation and reference
+                            material from Data Cloud using Retrieval Augmented Generation (RAG).
+
+                            This enables the platform to provide responses based on approved enterprise knowledge while
+                            reducing hallucinations during customer interactions.
+                        </p>
                     </section>
                     <section>
                         <h3>Phase 5 · Business Execution</h3>
-                        <p></p>
+                        <p class="short-content">
+                            Once all mandatory information has been collected and validated, deterministic Salesforce
+                            automation performs the required business operations.
+
+                            Depending on the scenario, the platform updates the Case, initiates replacement order
+                            workflows, prepares contextual draft emails and escalates conversations requiring human
+                            intervention.
+
+                            AI performs reasoning while Salesforce remains responsible for executing authoritative
+                            business processes.
+                        </p>
                     </section>
                 </section>
                 <section>
-                    <h2>Key Engineering Decisions</h2>
+                    <h2 class="major">Key Engineering Decisions</h2>
                     <div class="decision-grid">
                         <section class="decision-card">
                             <h3>Multi-Agent Architecture</h3>
-                            <p></p>
+                            <p class="short-content">
+                                Separate AI agents were created for vendor and customer interactions to isolate business
+                                responsibilities and simplify future expansion.
+                            </p>
                         </section>
                         <section class="decision-card">
                             <h3>Deterministic Routing</h3>
-                            <p></p>
+                            <p class="short-content">
+                                An orchestration layer determines the correct execution path before invoking specialist
+                                agents, ensuring consistent business behaviour.
+                            </p>
                         </section>
                         <section class="decision-card">
                             <h3>Programmatic Agent Invocation</h3>
-                            <p></p>
+                            <p class="short-content">
+                                Agents are invoked through Apex and ConnectApi, providing full control over
+                                orchestration rather than relying exclusively on declarative execution.
+                            </p>
                         </section>
                         <section class="decision-card">
                             <h3>Trust Layer & Guardrails</h3>
-                            <p></p>
+                            <p class="short-content">
+                                Enterprise governance is maintained by combining Agentforce reasoning with Salesforce
+                                security and deterministic business validation before executing operations.
+                            </p>
                         </section>
                         <section class="decision-card">
                             <h3>Conversational Slot-Filling</h3>
-                            <p></p>
+                            <p class="short-content">
+                                Rather than failing on incomplete requests, the platform progressively gathers missing
+                                information through natural conversations while preserving conversation context.
+                            </p>
                         </section>
                         <section class="decision-card">
                             <h3>Grounded Knowledge (RAG)</h3>
-                            <p></p>
+                            <p class="short-content">
+                                Product manuals, warranty policies and enterprise documentation are retrieved from Data
+                                Cloud to ensure responses remain grounded in approved business knowledge.
+                            </p>
                         </section>
                     </div>
                 </section>
                 <section>
-                    <h2>Engineering Challenges</h2>
-                    <p></p>
+                    <h2 class="major">Engineering Challenges</h2>
+                    <p class="short-content">
+                        Building a production AI platform involved considerably more than integrating a language model
+                        into Salesforce.
+
+                        One of the primary challenges was designing orchestration logic capable of coordinating multiple
+                        specialised agents while maintaining conversation context throughout long-running email
+                        exchanges.
+
+                        Another significant challenge involved balancing AI flexibility with deterministic business
+                        execution. Warranty validation, replacement orders and Salesforce updates could not rely solely
+                        on probabilistic reasoning, requiring clear boundaries between AI decision making and
+                        traditional Salesforce automation.
+
+                        Prompt engineering also required continuous refinement to ensure responses remained concise,
+                        context-aware and aligned with enterprise business rules while minimising hallucinations.
+
+                        Finally, maintaining extensibility was an important architectural goal. The solution was
+                        intentionally designed so that future specialist agents and business capabilities could be
+                        introduced without restructuring the overall platform.
+                    </p>
                 </section>
                 <section>
                     <h2>Technology Stack</h2>
@@ -124,7 +284,16 @@
                     </ul>
                 </section>
                 <section>
-                    <h2>Business Outcomes</h2>
+                    <h2 class="major">Business Outcomes</h2>
+                    <p class="short-content">
+                        Automated analysis of incoming warranty and support emails.
+                        Intelligent routing between vendor and customer workflows.
+                        Reduced manual information gathering through conversational slot-filling.
+                        Grounded responses using enterprise product documentation and warranty policies.
+                        Automated execution of warranty-related Salesforce business processes.
+                        Human escalation remains available whenever business rules or confidence thresholds require
+                        manual review.
+                    </p>
                     <ul class="outcomes">
                         <li>Automated Email Triage</li>
                         <li>Intelligent Vendor Routing</li>
@@ -136,7 +305,8 @@
                 </section>
                 <aside class="my-role">
                     <h2>My Role</h2>
-                    <p>Sole engineer responsible for the end-to-end design, implementation, testing and deployment of the solution.</p>
+                    <p>Sole engineer responsible for the end-to-end design, implementation, testing and deployment of
+                        the solution.</p>
                     <ul>
                         <li>Solution Architecture</li>
                         <li>Agentforce Design & Configuration</li>
