@@ -1817,6 +1817,7 @@ body.is-preload #footer {
     font-size: .92rem;
     line-height: 1.5;
 }
+
 .tech-stack {
     display: flex;
     flex-wrap: wrap;
@@ -1831,34 +1832,122 @@ body.is-preload #footer {
     font-size: .65rem;
     border: 1px solid rgba(255, 255, 255, .12);
     background: transparent;
-    color:rgba(255,255,255,.65);
+    color: rgba(255, 255, 255, .65);
     border-radius: 999px;
     letter-spacing: .03rem;
 }
-.work-location{
-    justify-content:center;
+
+.work-location {
+    justify-content: center;
 }
-@media screen and (max-width:736px){
-.services-grid{
-    grid-template-columns:1fr !important;
-    gap:1rem;
+
+@media screen and (max-width:736px) {
+    .services-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem;
+    }
+
+    .service-card {
+        padding: 1.4rem;
+    }
+
+    .service-icon {
+        font-size: 1.6rem;
+    }
+
+    .service-content h3 {
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+
+    .service-content p {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    .tech-stack .badge {
+        font-size: .72rem;
+        padding: .25rem .65rem;
+    }
 }
-.service-card{
-    padding:1.4rem;
+
+/* Testimonials */
+
+.testimonials-strip {
+    max-width: 730px;
+    margin: 2.5rem auto 0;
+    padding: 1.75rem 2rem;
+    text-align: center;
+    border: solid 1px rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 4px;
+    border-left: 2px solid rgba(255, 255, 255, .75);
 }
-.service-icon{
-    font-size:1.6rem;
+
+.testimonials-strip .stars {
+    display: block;
+    color: #ffffff;
+    font-size: 0.85rem;
+    letter-spacing: .35rem;
+    margin-bottom: 1rem;
+    opacity: .9;
 }
-.service-content h3{
-    font-size:1rem;
-    line-height:1.4;
+
+.testimonials-strip blockquote {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.9;
+    letter-spacing: .12rem;
+    text-transform: uppercase;
+    font-style: normal;
+    color: rgba(255, 255, 255, .82);
 }
-.service-content p{
-    font-size:1rem;
-    line-height:1.7;
+
+.testimonials-strip .author {
+    margin-top: 1.5rem;
 }
-.tech-stack .badge{
-    font-size:.72rem;
-    padding:.25rem .65rem;
+
+.testimonials-strip .author strong {
+    display: block;
+    font-size: .85rem;
+    letter-spacing: .22rem;
+    text-transform: uppercase;
 }
+
+.testimonials-strip .author span {
+    display: block;
+    margin-top: .25rem;
+    font-size: .7rem;
+    letter-spacing: .18rem;
+    text-transform: uppercase;
+    opacity: .6;
+}
+
+.testimonials-content {
+    font-style: italic;
+    padding: 1rem 0rem 0rem 1rem;
+}
+
+.cta-button {
+    margin-top: 2.5rem;
+    padding-bottom: .25rem;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(255, 255, 255, .45);
+    transition: all .25s ease;
+    font-weight: 700;
+    letter-spacing: .45rem;
+    font-size: .95rem;
+}
+
+.cta-button::after {
+    width: 0;
+    transition: width .25s ease;
+}
+
+.cta-button:hover::after {
+    width: 100%;
 }
