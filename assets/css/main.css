@@ -1782,6 +1782,10 @@ body.is-preload #footer {
 .case-study-list li {
     margin-bottom: 2rem;
     list-style-type: none;
+    padding:0;
+}
+.case-study-list{
+    padding:0;
 }
 
 .case-study-button {
