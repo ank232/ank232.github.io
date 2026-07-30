@@ -8,10 +8,11 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
 } */
-.case-study-body #bg:after{
+.case-study-body #bg:after {
     transform: scale(1.15);
     filter: blur(.1rem) brightness(.75);
 }
+
 .case-study-page {
     width: min(1100px, calc(100% - 4rem));
     margin: 0 auto;

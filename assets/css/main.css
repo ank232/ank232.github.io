@@ -1779,6 +1779,10 @@ body.is-preload #footer {
 }
 
 /*New */
+.case-study-list li {
+    margin-bottom: 2rem;
+}
+
 .services-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
