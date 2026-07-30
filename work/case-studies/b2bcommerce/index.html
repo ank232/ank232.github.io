@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/case-study.css">
+    <title>Customized Pricing</title>
+</head>
+
+<body class="case-study-body">
+    <div id="bg"></div>
+    <div id="wrapper">
+        <main class="case-study-page">
+            <article class="case-study">
+                <header class="case-hero">
+                    <figure class="hero-image">
+                        <img src="../images/pricing-banner.jpg" alt="Pricing Architecture Modernisation">
+                    </figure>
+                    <h1>Pricing Architecture Modernisation</h1>
+                    <p>Simplifying personalised pricing by extending Salesforce B2B Commerce's native pricing engine
+                        while reducing pricing complexity from twenty-six price books to three scalable pricing models.</p>
+                    <ul class="tech-stack">
+                        <li>Salesforce B2B Commerce Cloud</li>
+                        <li>Apex</li>
+                        <li>PricingService</li>
+                        <li>Buyer Groups</li>
+                        <li>Custom Fields</li>
+                    </ul>
+                </header>
+                <section>
+                    <h2 class="major">Executive Summary</h2>
+                    <p class="short-content">
+                        As product catalogues grow, pricing strategies often become increasingly complex. In this
+                        implementation, a wellness products company using Salesforce B2B Commerce had evolved to
+                        manage personalised customer pricing through twenty-six separate price books. While the
+                        approach achieved the required pricing flexibility, it introduced significant operational
+                        overhead whenever products were added or existing pricing changed.
+
+                        I redesigned the pricing architecture by extending Salesforce B2B Commerce's native pricing
+                        engine, replacing the configuration-heavy model with a scalable account-based pricing solution.
+                        The new approach reduced the pricing model from twenty-six price books to three category-specific
+                        base price books while continuing to deliver personalised pricing to every customer across the
+                        storefront.
+
+                        Rather than replacing Salesforce Commerce functionality, the solution leveraged the platform's
+                        standard pricing framework and extended it where necessary, resulting in a cleaner, more
+                        maintainable architecture that continues to operate in production.
+                    </p>
+                </section>
+                <section>
+                    <h2 class="major">The Challenge</h2>
+                    <figure>
+                        <!-- Before Workflow -->
+                    </figure>
+                    <p class="short-content">
+                        The organisation operates an Aura-based Salesforce B2B Commerce storefront serving different
+                        categories of customers, each receiving negotiated pricing based on their commercial relationship.
+
+                        Historically, personalised pricing was achieved by maintaining twenty-six separate price books,
+                        with each customer assigned to a dedicated pricing structure. Although functionally correct,
+                        the model became increasingly difficult to maintain as the product catalogue expanded.
+
+                        Every new product introduction required administrators to update multiple price books
+                        individually. Product maintenance became repetitive, pricing administration became increasingly
+                        error-prone, and introducing catalogue changes required significantly more effort than necessary.
+
+                        The objective was not simply to reduce the number of price books. The new solution needed to
+                        preserve personalised pricing for every customer while remaining fully compatible with Salesforce
+                        B2B Commerce's native pricing pipeline.
+                    </p>
+                </section>
+                <section>
+                    <h2 class="major">The Solution</h2>
+                    <figure>
+                        <!-- High Level Solution -->
+                    </figure>
+                    <p class="short-content">Instead of maintaining individual price books for every customer, I redesigned the pricing
+                        architecture around customer categories.
+
+                        Three base price books were introduced to represent the primary pricing models: Retail,
+                        Wholesale and COG.
+
+                        Each product now exists only within the appropriate pricing category. Products that are
+                        exclusive to a particular customer segment naturally remain available only through their
+                        corresponding price book, eliminating unnecessary duplication across multiple pricing
+                        structures.
+
+                        Customer-specific pricing is no longer maintained through separate price books. Instead,
+                        account managers define percentage discounts directly on Account records using custom
+                        Salesforce fields. These values represent negotiated pricing for each customer category
+                        and can be managed without modifying product pricing data.
+
+                        Buyer Groups determine the appropriate base pricing, while a custom extension of Salesforce
+                        B2B Commerce's PricingService applies account-specific discounts dynamically during price
+                        calculation.
+
+                        The result is personalised pricing that behaves consistently across the storefront while
+                        dramatically simplifying ongoing catalogue maintenance.</p>
+                </section>
+                <section>
+                    <h2 class="major">Architecture Overview</h2>
+                    <figure>
+                        <img src="../images/pricing-architecture.png" alt="Architecture Diagram">
+                        <figcaption>High-level overview of the account-based pricing architecture.</figcaption>
+                    </figure>
+                    <p class="short-content">The solution extends Salesforce B2B Commerce's standard pricing lifecycle rather than
+                        replacing it.
+
+                        Each authenticated customer belongs to a Buyer Group that determines the appropriate pricing
+                        category. The Buyer Group provides the corresponding base price from one of the three
+                        category-specific price books.
+
+                        During price calculation, the custom PricingService retrieves the customer's negotiated
+                        discount percentages stored on the Account record. The service calculates the final selling
+                        price by applying the configured percentage discount to the base catalogue price before
+                        returning the personalised value to the storefront.
+
+                        Because the implementation integrates directly into Salesforce Commerce's native pricing
+                        framework, personalised prices remain consistent throughout the customer's purchasing journey,
+                        including product listings, product detail pages, the shopping cart and checkout.</p>
+                </section>
+                <section>
+                    <h2 class="major">Technical Implementation</h2>
+                    <section>
+                        <h3>Phase 1 · Simplifying the Pricing Model</h3>
+                        <p>The first stage involved analysing the existing pricing strategy and identifying common
+                            pricing patterns across the customer base.
+
+                            Rather than maintaining separate price books for individual accounts, pricing was
+                            normalised into three category-specific base price books representing Retail,
+                            Wholesale and COG customers.
+
+                            This significantly reduced pricing duplication while preserving flexibility for future
+                            catalogue growth.</p>
+                    </section>
+                    <section>
+                        <h3>Phase 2 · Account-Based Pricing</h3>
+                        <p class="short-content">
+                            Customer-specific discounts were moved from pricing configuration into business data.
+
+                            Custom fields were introduced on the Account object, allowing sales managers to
+                            configure negotiated percentage discounts independently for each pricing category.
+
+                            This separated catalogue pricing from commercial agreements, making ongoing pricing
+                            administration considerably simpler.
+                        </p>
+                    </section>
+                    <section>
+                        <h3>Phase 3 · Extending the Native Pricing Engine</h3>
+                        <p class="short-content">
+                            Salesforce B2B Commerce's PricingService was extended to introduce personalised pricing
+                            while preserving the platform's standard pricing workflow.
+
+                            During each pricing request, the service retrieves the customer's applicable base price
+                            and calculates the final selling price using the negotiated discount stored on the
+                            Account.
+
+                            By extending the native pricing engine instead of replacing it, the implementation
+                            remains aligned with Salesforce's Commerce architecture and benefits from the existing
+                            pricing lifecycle.
+                        </p>
+                    </section>
+                    <section>
+                        <h3>Phase 4 · Consistent Storefront Experience</h3>
+                        <p class="short-content">
+                            The pricing service is invoked throughout the storefront, ensuring customers see
+                            identical personalised pricing regardless of where products appear.
+
+                            This provides a seamless purchasing experience while requiring no manual pricing
+                            adjustments across different storefront components.
+                        </p>
+                    </section>
+                </section>
+                <section>
+                    <h2 class="major">Key Engineering Decisions</h2>
+                    <div class="decision-grid">
+                        <section class="decision-card">
+                            <h3>Extend Native Pricing</h3>
+                            <p class="short-content">
+                                Extended Salesforce B2B Commerce's PricingService to introduce personalised pricing while
+                                preserving the platform's standard pricing lifecycle.
+                            </p>
+                        </section>
+                        <section class="decision-card">
+                            <h3>Simplified Pricebooks</h3>
+                            <p class="short-content">
+                                Consolidated twenty-six customer-specific price books into three category-based price books,
+                                dramatically reducing pricing maintenance.
+                            </p>
+                        </section>
+                        <section class="decision-card">
+                            <h3>Account-Driven Pricing</h3>
+                            <p class="short-content">
+                                Customer-specific discounts are maintained on Account records, separating catalogue pricing
+                                from commercial agreements.
+                            </p>
+                        </section>
+                        <section class="decision-card">
+                            <h3>Buyer Group Routing</h3>
+                            <p class="short-content">
+                                Buyer Groups determine the customer's pricing category, allowing the solution to integrate
+                                naturally with Salesforce Commerce.
+                            </p>
+                        </section>
+                        <section class="decision-card">
+                            <h3>Centralised Price Logic</h3>
+                            <p class="short-content">
+                                All pricing calculations are performed within a single PricingService implementation,
+                                ensuring consistent pricing across the storefront.
+                            </p>
+                        </section>
+                        <section class="decision-card">
+                            <h3>Platform First</h3>
+                            <p class="short-content">
+                                Built on native Commerce capabilities instead of replacing them, improving maintainability
+                                and long-term scalability.
+                            </p>
+                        </section>
+                    </div>
+                </section>
+                <section>
+                    <h2 class="major">Engineering Challenges</h2>
+                    <p class="short-content">
+                        The primary challenge was simplifying a mature pricing architecture without changing how
+                        customers experienced pricing on the storefront.
+
+                        Every pricing calculation needed to remain accurate while replacing an implementation that
+                        had evolved over time around numerous individual price books. Careful consideration was
+                        required to ensure personalised pricing continued to behave consistently across product
+                        discovery, cart management and checkout.
+
+                        Another important consideration was preserving compatibility with Salesforce B2B Commerce's
+                        native pricing lifecycle. Rather than introducing parallel pricing logic, the implementation
+                        extended the existing platform capabilities, allowing future platform enhancements and
+                        commerce features to continue operating within the standard pricing framework.
+                    </p>
+                </section>
+                <section>
+                    <h2>Technology Stack</h2>
+                    <ul class="tech-stack">
+                        <li>Salesforce B2B Commerce Cloud</li>
+                        <li>Apex</li>
+                        <li>PricingService</li>
+                        <li>Buyer Groups</li>
+                        <li>Price Books</li>
+                        <li>Custom Fields</li>
+                        <li>Account Object</li>
+                        <li>Aura Components</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2 class="major">Business Outcomes</h2>
+                    <p class="short-content">
+                        Reduced the pricing architecture from twenty-six price books to three category-specific price books.
+                        Simplified catalogue maintenance for future product additions.
+                        Preserved account-specific personalised pricing for every customer.
+                        Centralised pricing calculations within a single extensible service.
+                        Continued leveraging Salesforce B2B Commerce's native pricing engine.
+                        Delivered consistent personalised pricing across the entire storefront experience.
+                        Established a scalable pricing foundation that supports future catalogue growth.
+                    </p>
+                    <ul class="outcomes">
+                        <li>Simplified Price Book Architecture</li>
+                        <li>Account-Based Personalised Pricing</li>
+                        <li>Native Pricing Engine Extension</li>
+                        <li>Buyer Group Routing</li>
+                        <li>Consistent Storefront Pricing</li>
+                        <li>Scalable Catalogue Foundation</li>
+                    </ul>
+                </section>
+                <aside class="my-role">
+                    <h2>My Role</h2>
+                    <p>Sole engineer responsible for the end-to-end design, implementation, testing and deployment of
+                        the solution.</p>
+                    <ul>
+                        <li>Solution Architecture</li>
+                        <li>Pricing Model Design</li>
+                        <li>PricingService Extension</li>
+                        <li>Apex Development</li>
+                        <li>Buyer Group Configuration</li>
+                        <li>Account Field Design</li>
+                        <li>Storefront Integration</li>
+                        <li>Testing & Deployment</li>
+                    </ul>
+                </aside>
+            </article>
+        </main>
+    </div>
+</body>
+
+</html>
