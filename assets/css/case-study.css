@@ -16,7 +16,6 @@
 .case-study-page {
     width: min(1100px, calc(100% - 4rem));
     margin: 0 auto;
-    padding: 4rem 0 6rem;
 }
 
 .case-study {
@@ -124,19 +123,6 @@
 
 .decision-card h3 {
     margin-bottom: .75rem;
-}
-
-/* ==========================
-   My Role
-========================== */
-
-.my-role {
-    border-top: solid 1px rgba(255, 255, 255, .12);
-    padding-top: 3rem;
-}
-
-.my-role ul {
-    margin-top: 1.5rem;
 }
 
 /* ==========================

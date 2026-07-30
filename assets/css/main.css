@@ -1781,6 +1781,11 @@ body.is-preload #footer {
 /*New */
 .case-study-list li {
     margin-bottom: 2rem;
+    list-style-type: none;
+}
+
+.case-study-button {
+    margin-bottom: 1.5rem;
 }
 
 .services-grid {
@@ -1954,4 +1959,22 @@ body.is-preload #footer {
 
 .cta-button:hover::after {
     width: 100%;
+}
+
+.cta-container {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.cta-tag {
+    font-size: 0.8rem;
+    letter-spacing: 0.25rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.cta-title {
+    margin-bottom: 1.5rem;
 }

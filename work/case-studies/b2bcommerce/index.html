@@ -19,8 +19,9 @@
                         <img src="../images/pricing-banner.jpg" alt="Pricing Architecture Modernisation">
                     </figure>
                     <h1>Pricing Architecture Modernisation</h1>
-                    <p>Simplifying personalised pricing by extending Salesforce B2B Commerce's native pricing engine
-                        while reducing pricing complexity from twenty-six price books to three scalable pricing models.</p>
+                    <p class="short-content">Modernising Salesforce B2B Commerce pricing by replacing a complex 26-price-book architecture
+                        with a scalable account-driven pricing model.
+                    </p>
                     <ul class="tech-stack">
                         <li>Salesforce B2B Commerce Cloud</li>
                         <li>Apex</li>
@@ -40,7 +41,8 @@
 
                         I redesigned the pricing architecture by extending Salesforce B2B Commerce's native pricing
                         engine, replacing the configuration-heavy model with a scalable account-based pricing solution.
-                        The new approach reduced the pricing model from twenty-six price books to three category-specific
+                        The new approach reduced the pricing model from twenty-six price books to three
+                        category-specific
                         base price books while continuing to deliver personalised pricing to every customer across the
                         storefront.
 
@@ -56,7 +58,8 @@
                     </figure>
                     <p class="short-content">
                         The organisation operates an Aura-based Salesforce B2B Commerce storefront serving different
-                        categories of customers, each receiving negotiated pricing based on their commercial relationship.
+                        categories of customers, each receiving negotiated pricing based on their commercial
+                        relationship.
 
                         Historically, personalised pricing was achieved by maintaining twenty-six separate price books,
                         with each customer assigned to a dedicated pricing structure. Although functionally correct,
@@ -64,10 +67,12 @@
 
                         Every new product introduction required administrators to update multiple price books
                         individually. Product maintenance became repetitive, pricing administration became increasingly
-                        error-prone, and introducing catalogue changes required significantly more effort than necessary.
+                        error-prone, and introducing catalogue changes required significantly more effort than
+                        necessary.
 
                         The objective was not simply to reduce the number of price books. The new solution needed to
-                        preserve personalised pricing for every customer while remaining fully compatible with Salesforce
+                        preserve personalised pricing for every customer while remaining fully compatible with
+                        Salesforce
                         B2B Commerce's native pricing pipeline.
                     </p>
                 </section>
@@ -76,7 +81,8 @@
                     <figure>
                         <!-- High Level Solution -->
                     </figure>
-                    <p class="short-content">Instead of maintaining individual price books for every customer, I redesigned the pricing
+                    <p class="short-content">Instead of maintaining individual price books for every customer, I
+                        redesigned the pricing
                         architecture around customer categories.
 
                         Three base price books were introduced to represent the primary pricing models: Retail,
@@ -105,7 +111,8 @@
                         <img src="../images/pricing-architecture.png" alt="Architecture Diagram">
                         <figcaption>High-level overview of the account-based pricing architecture.</figcaption>
                     </figure>
-                    <p class="short-content">The solution extends Salesforce B2B Commerce's standard pricing lifecycle rather than
+                    <p class="short-content">The solution extends Salesforce B2B Commerce's standard pricing lifecycle
+                        rather than
                         replacing it.
 
                         Each authenticated customer belongs to a Buyer Group that determines the appropriate pricing
@@ -179,28 +186,32 @@
                         <section class="decision-card">
                             <h3>Extend Native Pricing</h3>
                             <p class="short-content">
-                                Extended Salesforce B2B Commerce's PricingService to introduce personalised pricing while
+                                Extended Salesforce B2B Commerce's PricingService to introduce personalised pricing
+                                while
                                 preserving the platform's standard pricing lifecycle.
                             </p>
                         </section>
                         <section class="decision-card">
                             <h3>Simplified Pricebooks</h3>
                             <p class="short-content">
-                                Consolidated twenty-six customer-specific price books into three category-based price books,
+                                Consolidated twenty-six customer-specific price books into three category-based price
+                                books,
                                 dramatically reducing pricing maintenance.
                             </p>
                         </section>
                         <section class="decision-card">
                             <h3>Account-Driven Pricing</h3>
                             <p class="short-content">
-                                Customer-specific discounts are maintained on Account records, separating catalogue pricing
+                                Customer-specific discounts are maintained on Account records, separating catalogue
+                                pricing
                                 from commercial agreements.
                             </p>
                         </section>
                         <section class="decision-card">
                             <h3>Buyer Group Routing</h3>
                             <p class="short-content">
-                                Buyer Groups determine the customer's pricing category, allowing the solution to integrate
+                                Buyer Groups determine the customer's pricing category, allowing the solution to
+                                integrate
                                 naturally with Salesforce Commerce.
                             </p>
                         </section>
@@ -214,7 +225,8 @@
                         <section class="decision-card">
                             <h3>Platform First</h3>
                             <p class="short-content">
-                                Built on native Commerce capabilities instead of replacing them, improving maintainability
+                                Built on native Commerce capabilities instead of replacing them, improving
+                                maintainability
                                 and long-term scalability.
                             </p>
                         </section>
@@ -253,7 +265,8 @@
                 <section>
                     <h2 class="major">Business Outcomes</h2>
                     <p class="short-content">
-                        Reduced the pricing architecture from twenty-six price books to three category-specific price books.
+                        Reduced the pricing architecture from twenty-six price books to three category-specific price
+                        books.
                         Simplified catalogue maintenance for future product additions.
                         Preserved account-specific personalised pricing for every customer.
                         Centralised pricing calculations within a single extensible service.
@@ -270,21 +283,29 @@
                         <li>Scalable Catalogue Foundation</li>
                     </ul>
                 </section>
-                <aside class="my-role">
-                    <h2>My Role</h2>
-                    <p>Sole engineer responsible for the end-to-end design, implementation, testing and deployment of
-                        the solution.</p>
-                    <ul>
-                        <li>Solution Architecture</li>
-                        <li>Pricing Model Design</li>
-                        <li>PricingService Extension</li>
-                        <li>Apex Development</li>
-                        <li>Buyer Group Configuration</li>
-                        <li>Account Field Design</li>
-                        <li>Storefront Integration</li>
-                        <li>Testing & Deployment</li>
+                <hr>
+                <section class="cta-section">
+                    <div class="cta-container">
+                        <p class="cta-tag">READY TO START?</p>
+                        <h2 class="cta-title">
+                            Let's Talk About Your Salesforce Project
+                        </h2>
+                        <p class="short-content">
+                            Whether you're implementing Agentforce, modernizing Salesforce, building a B2B Commerce
+                            storefront, or integrating external systems, let's discuss how we can build the right
+                            solution for your business.
+                        </p>
+                        <a href="contact.html" class="button">Discuss Your Project →</a>
+                    </div>
+                    <div>
+                        <h3 class="align-center"> Available for Freelance Salesforce Projects</h3>
+                    </div>
+                    <ul class="work-location tech-stack">
+                        <li class="badge">Remote</li>
+                        <li class="badge">Worldwide</li>
+                        <li class="badge">Contract & Consulting</li>
                     </ul>
-                </aside>
+                </section>
             </article>
         </main>
     </div>
